@@ -372,6 +372,7 @@ def eval_pretty_print(step_rewards, total_reward):
         print(mins_descr + mi)
         print(maxs_descr + ma)
         print(border)
+    print("Scores:", total_reward)
     print(f"Total: mean {total_reward.mean():.3f} med {np.median(total_reward):.0f} mode(s) {stats.mode(total_reward, axis=None)[0]} std {total_reward.std():.3f} min {int(total_reward.min()):2} max {int(total_reward.max()):2}")
     print_hist(total_reward, 25, height=20)
     print('')

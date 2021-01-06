@@ -27,6 +27,7 @@ class HanabiParallelSession:
             self.reset()
 
         def reset(self):
+
             """Restart counting the agents"""
             self.cur_agent_id = -1
 
@@ -73,7 +74,7 @@ class HanabiParallelSession:
         """
         self.reset()
         print("Agents", self.agents.agents)
-        #  print("Running evaluation")
+        print("Number of states:", self.n_states)
         total_reward = np.zeros((self.n_states,))
         step_rewards = []
         step_types = self.parallel_env.step_types
@@ -90,6 +91,10 @@ class HanabiParallelSession:
 
             obs = self.preprocess_obs_for_agent(self._cur_obs, agent)
             actions = agent.exploit(obs)
+            #actions = paralle_agent(obs)
+            #print(len(obs))
+            #print(agent_id)
+            #print(actions[0], actions[1])
 
             self._cur_obs, reward, step_types = \
                     self.parallel_env.step(actions, agent_id)

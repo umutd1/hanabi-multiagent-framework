@@ -34,6 +34,9 @@ class HanabiParallelEnvironment:
 
         last_score = np.array(self._parallel_env.get_scores())
 
+        #print(last_score)
+        #print(actions[0])
+        
         # Detect any illegal moves
         #  moves_illegal = np.logical_not(self._parallel_env.moves_are_legal(actions))
 
